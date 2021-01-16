@@ -1,0 +1,31 @@
+.header {
+    background: #fa8c16;
+    padding: 16px 0;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+
+.header-nav {
+    margin: 0 auto 0 60px;
+}
+
+.header-menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav-item {
+    margin: 0 15px 0 0;
+    font-size: 14px;
+}
+
+

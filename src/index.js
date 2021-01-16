@@ -7,11 +7,11 @@ import ReactDOM from 'react-dom';
 // store
 // import { store } from './store/store.js'
 //components
-import App from './components/App/App.jsx';
+import App from './components/app/App.jsx';
 // utils
-import init from './utils/script.jsx'
 //global styles
 import './index.scss'
+
 
 
 ReactDOM.render(

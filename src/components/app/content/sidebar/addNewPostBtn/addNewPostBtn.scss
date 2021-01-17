@@ -1,0 +1,18 @@
+.button-new-post {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background: rgb(247, 165, 42);
+    padding: 13px;
+    margin: 20px 0 0;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.button-new-post .icon {
+    fill: rgb(238, 0, 0);
+    margin: 0 7px 0 0;
+}

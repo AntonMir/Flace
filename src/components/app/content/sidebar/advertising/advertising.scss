@@ -1,0 +1,21 @@
+/* РЕКЛАМА */
+.advertising {
+    position: relative;
+    display: block;
+    background: #fff url(../../../../../assets/img/promo.jpg) center center no-repeat;
+    background-size: cover;
+    height: 260px;
+    margin: 20px 0 0 0;
+    border: rgb(230, 230, 230) solid 1px;
+}
+
+.advertising:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "Реклама";
+    color: #fff;
+    background: #c8c8c8;
+    padding: 0 26px;
+    font-size: 12px;
+}

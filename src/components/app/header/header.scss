@@ -12,20 +12,13 @@
     margin: auto;
 }
 
-.header-nav {
-    margin: 0 auto 0 60px;
+@media (max-width: 990px) {
+
+    .header {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        width: 100%;
+    }
+
 }
-
-.header-menu {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.nav-item {
-    margin: 0 15px 0 0;
-    font-size: 14px;
-}
-
-

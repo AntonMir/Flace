@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 // store
 // import { store } from './store/store.js'
 //components
-import App from './components/app/App.jsx';
+import App from './components/App/App.jsx';
 // utils
 //global styles
 import './index.scss'

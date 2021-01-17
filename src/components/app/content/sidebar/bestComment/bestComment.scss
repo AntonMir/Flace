@@ -1,0 +1,35 @@
+/* КОММЕНТАРИЙ ДНЯ */
+.card {
+    background: #fff;
+    margin: 20px 0 0 0;
+}
+
+.card-header {
+    padding: 23px 25px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #fafafa;
+    border: rgb(230, 230, 230) solid 1px;
+}
+
+.card-title {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-body {
+    padding: 22px 40px 20px 25px;
+    border: rgb(230, 230, 230) solid 1px;
+    border-top: none;
+}
+
+.card-body-title {
+    color: #D48806;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.card-text {
+    font-size: 14px;
+}

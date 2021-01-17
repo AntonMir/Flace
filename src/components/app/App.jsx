@@ -3,8 +3,8 @@
 import React from 'react'
 //components
 // import Main from '../main/main.jsx'
-import Header from '../header/Header.jsx';
-import Content from '../content/Content.jsx';
+import Header from './header/Header.jsx';
+import Content from './content/Content.jsx';
 
 //styles
 import './app.scss'

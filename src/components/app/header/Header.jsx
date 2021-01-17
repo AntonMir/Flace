@@ -1,9 +1,9 @@
 import React from 'react';
-import search from '../../assets/img/search.svg'
-import './header.css'
-import Logo from '../mainLogo/logo.jsx'
-import Search from '../search/search.jsx'
-import BurgerMenu from '../burgerMenu/burgerMenu.jsx'
+import './header.scss'
+import Logo from './logo/logo.jsx'
+import Search from './search/search.jsx'
+import BurgerMenu from './burgerMenu/burgerMenu.jsx'
+import NavMenu from './navMenu/NavMenu.jsx'
 
 
 export default function Header(props) {
@@ -11,6 +11,7 @@ export default function Header(props) {
 		<header className="header">
 			<div className="header-wrapper">
 	    		<Logo />
+				<NavMenu />
 	    		<Search />
 	    		<BurgerMenu />
     		</div>

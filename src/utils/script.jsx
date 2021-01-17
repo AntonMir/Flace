@@ -1,11 +1,7 @@
-// 'use strict'
-
-
-
 // Создаем переменную, в которую положим кнопку меню
-let menuToggle = document.querySelector('#menu-toggle');
+const menuToggle = document.querySelector('#menu-toggle');
 // Создаем переменную, в которую положим меню
-let menu = document.querySelector('.sidebar');
+const menu = document.querySelector('.sidebar');
 
 
 const regExpValidEmail = /^\w+@\w+\.\w{2,}$/;
@@ -320,7 +316,7 @@ const addNewPostToAllPost = () => {
 
 
 // инициализация все функций
-function init() {
+
     
     // отслеживаем клик по кнопке меню и запускаем функцию 
     menuToggle.addEventListener('click', function (event) {
@@ -380,8 +376,4 @@ function init() {
     addNewPostToAllPost();
     toggleAuthDom();
 
-}
-
-export default init;
-
-
+    

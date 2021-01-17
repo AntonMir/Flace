@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import search from '../../assets/img/search.svg'
+import React from 'react';
+import search from '../../../../assets/img/search.svg'
 import './search.scss'
 
 

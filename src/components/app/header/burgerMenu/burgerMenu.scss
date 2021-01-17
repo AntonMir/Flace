@@ -1,0 +1,22 @@
+.menu-toggle {
+    display: none;  
+}
+
+@media (max-width: 990px) {
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;  
+      width: 30px;
+      height: 20px;
+      margin: 0 0 0 12px;
+    }
+  
+    .menu-toggle span {
+      width: 30px;
+      height: 2px;
+      background: #fff;
+    }
+
+}

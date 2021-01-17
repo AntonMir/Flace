@@ -1,0 +1,91 @@
+.add-post {
+    display: none;
+}
+
+.add-post.active {
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+}
+
+.add-title,
+.add-text {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    padding: 23px 30px;
+    margin-bottom: 16px;
+}
+.add-text {
+    min-height: 362px;
+}
+.add-button {
+    background: #faad14;
+    border-radius: 4px;
+    border: none;
+    text-decoration: none;
+    color: #fff;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 13px 35px;
+    cursor: pointer;
+}
+
+.button-outline {
+    background: #fff;
+    border: 1px solid #ffc53d;
+    border-radius: 4px;
+    color: #ffc53d;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 13px 16px;
+    cursor: pointer;
+    margin-left: 1%;
+}
+
+.add-post {
+    margin-right: 1%;
+}
+
+.icon-fire, .icon-video, .icon-photo {
+    fill: rgb(141, 52, 52);
+    width: 11px;
+    height: 13px;
+    margin-right: 10px;
+}
+
+
+@media (max-width: 990px) {
+
+    .add-post.active {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 676px) {
+
+    .add-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .add-button {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .add-post .button-outline {
+        margin: 10px 0 0 0;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .add-button {
+        width: 100%;
+    }
+
+}

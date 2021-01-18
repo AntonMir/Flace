@@ -11,26 +11,19 @@ import Advertising from './advertising/Advertising.jsx'
 import BurgerMenu from '../../header/burgerMenu/burgerMenu.jsx'
 
 import './sidebar.scss'
+import { connect } from 'react-redux'
+import { store } from '../../../../store/store'
 
-export default class Sidebar extends Component {
+
+class Sidebar extends Component {
     constructor(props) {
         super(props)
-        BurgerMenu.addCallback(
-            this.showSidebar.bind(this))
     }
   
-
-    showSidebar() {
-        document.querySelector('.sidebar').classList.toggle('visible');
-    }
-
-
     render() {
         return (
-            <>
-            <button style={{order: -1}} onClick={this.showSidebar}>КНОПКААА</button>
-                {/*  БОКОВАЯ ПАНЕЛЬ С КНОПКОЙ И РЕКЛАМОЙ  */}
-                <aside className="sidebar">
+            <>  
+                <aside className={`${this.props.sidebarStatus == true ? "sidebar visible": "sidebar"}`}>
                     <Login />
                     <User />
                     <NavMenu />
@@ -43,6 +36,14 @@ export default class Sidebar extends Component {
     } 
 
 }
+
+const mapSidebar = state => {
+    return {
+        sidebarStatus: state.sidebarStatus
+    }
+}
+
+export default connect(mapSidebar)(Sidebar)
 
 //ru.reactjs.org/docs/react-component.html
 

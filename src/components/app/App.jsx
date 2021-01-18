@@ -1,16 +1,22 @@
-//react
-// import React, { Component } from 'react'
+// react
 import React from 'react'
-//components
+
+// route
+import { BrowserRouter as Router, Route } from "react-router-dom"
+
+// components
 // import Main from '../main/main.jsx'
 import Header from './header/Header.jsx';
 import Content from './content/Content.jsx';
 
-//styles
+// styles
 import './app.scss'
 
+// redux
+import { Provider } from 'react-redux'
+import { store } from '../../store/store.js'
 
-import { BrowserRouter as Router, Route } from "react-router-dom"
+
 
 
 function H111(props) {
@@ -24,11 +30,13 @@ export default function App() {
 	return (
 		<>
     		<Router>
-				<Header /> 
-				<div>
-					<Route exact path='/' component={Content}/>
-					<Route exact path='/test' component={H111}/>
-				</div>
+  				<Provider store={store}>
+					<Header /> 
+					<div>
+						<Route exact path='/' component={Content}/>
+						<Route exact path='/test' component={H111}/>
+					</div>
+				</Provider>	
 			</Router>
 		</>
 	)

@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux'
+import { store } from '../../../../store/store'
 // import Sidebar from '../../content/sidebar/Sidebar.jsx'
 
 import './burgerMenu.scss'
+import { toggleSidebar } from '../../../../store/actions'
 
-export default class BurgerMenu extends Component {
+
+class BurgerMenu extends Component {
     constructor(props) {
         super(props)
-        this.callback = null
     }
 
-    addCallback(showSidebar) {
-        this.callback = showSidebar
-    }
-
-    show() {
-        try {
-        this.callback()
-        } catch {
-
-        }
+    showSidebar = () => {
+        store.dispatch(toggleSidebar(!this.props.sidebarStatus))
     }
 
     render() {
         return (
-            <div onClick={this.show()} className="menu-toggle" id="menu-toggle">
+            <div
+                onClick={this.showSidebar}
+                className="menu-toggle"
+                id="menu-toggle"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -32,3 +30,12 @@ export default class BurgerMenu extends Component {
         )
     }
 }
+
+
+const mapBurgerMenu = state => {
+    return {
+        sidebarStatus: state.sidebarStatus
+    }
+}
+
+export default connect(mapBurgerMenu)(BurgerMenu)

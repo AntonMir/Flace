@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './header.scss'
 import Logo from './logo/logo.jsx'
 import Search from './search/search.jsx'

@@ -30,13 +30,13 @@ export default function App() {
 	return (
 		<>
     		<Router>
-  				<Provider store={store}>
+  				{/* <Provider store={store}> */}
 					<Header /> 
 					<div>
 						<Route exact path='/' component={Content}/>
 						<Route exact path='/test' component={H111}/>
 					</div>
-				</Provider>	
+				{/* </Provider>	 */}
 			</Router>
 		</>
 	)

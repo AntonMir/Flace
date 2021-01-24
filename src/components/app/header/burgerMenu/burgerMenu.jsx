@@ -3,26 +3,26 @@ import React, { Component } from 'react';
 //styles
 import './burgerMenu.scss'
 //redux
-// import { connect } from 'react-redux'
-// import { store } from '../../../../store/store'
-// import { toggleSidebar } from '../../../../store/actions'
+import { connect } from 'react-redux'
+import { store } from '../../../../store/store'
+import { toggleSidebar } from '../../../../store/actions'
 
 
-export default class BurgerMenu extends Component {
+class BurgerMenu extends Component {
     constructor(props) {
         super(props)
     }
 
     // ДАН_________________________________________________________
-    // showSidebar = () => {
-    //     store.dispatch(toggleSidebar(!this.props.sidebarStatus))
-    // }
+    showSidebar = () => {
+        store.dispatch(toggleSidebar(!this.props.sidebarStatus))
+    }
     // ____________________________________________________________
 
     render() {
         return (
             <div
-                // onClick={this.showSidebar} //ДАН
+                onClick={this.showSidebar} //ДАН
                 className="menu-toggle"
                 id="menu-toggle"
             >
@@ -35,11 +35,11 @@ export default class BurgerMenu extends Component {
 }
 
 // ДАН__________________________________________________
-// const mapBurgerMenu = state => {
-//     return {
-//         sidebarStatus: state.sidebarStatus
-//     }
-// }
+const mapBurgerMenu = state => {
+    return {
+        sidebarStatus: state.sidebarStatus
+    }
+}
 
-// export default connect(mapBurgerMenu)(BurgerMenu)
+export default connect(mapBurgerMenu)(BurgerMenu)
 // ______________________________________________________

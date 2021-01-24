@@ -1,15 +1,22 @@
-import { ACTION_TOGGLE_SIDE_BAR } from './actions'
+import { TOGGLE_SIDEBAR, SHOW_REGISTRATION } from './actions'
 
 export const reducer = (state, action) => {
 
 	switch (action.type) {
 		
-		case ACTION_TOGGLE_SIDE_BAR:
-			return {
+		case TOGGLE_SIDEBAR:
+			return { 
 				...state,
-				sidebarStatus: action.payload
+				sidebar: action.status
 			}
 
+		case SHOW_REGISTRATION: 
+			return {
+				...state,
+				registration: action.status 
+			}
 	}
+
 	return state
+
 }

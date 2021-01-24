@@ -8,6 +8,10 @@
     background-color: #FAFAFA;
 }
 
+.registration.visible {
+    display: flex;
+}
+
 .reg-title {
     text-align: center;
     margin: 0 20px 30px;

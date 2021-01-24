@@ -11,19 +11,20 @@ import Advertising from './advertising/Advertising.jsx'
 import './sidebar.scss'
 //redux
 import { connect } from 'react-redux'
-import { store } from '../../../../store/store'
 
 
 class Sidebar extends Component {
     constructor(props) {
         super(props)
     }
-  
+ 
+    
     render() {
+
         return (
             <>  
                 {/* <aside className="sidebar"> */}
-                <aside className={`${this.props.sidebarStatus == true ? "sidebar visible": "sidebar"}`}>
+                <aside className={`${this.props.sidebar ? "sidebar visible": "sidebar"}`}>
                     <Login />
                     <User />
                     <NavMenu />
@@ -40,7 +41,7 @@ class Sidebar extends Component {
 // -------------REDUX-ДАН----------------
 const mapSidebar = state => {
     return {
-        sidebarStatus: state.sidebarStatus
+        sidebar: state.sidebar
     }
 }
 

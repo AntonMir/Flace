@@ -15,7 +15,8 @@ class BurgerMenu extends Component {
 
     // ДАН_________________________________________________________
     showSidebar = () => {
-        store.dispatch(toggleSidebar(!this.props.sidebarStatus))
+        // меняем наш state меняя его значение на true
+        store.dispatch(toggleSidebar(!this.props.sidebar))        
     }
     // ____________________________________________________________
 
@@ -35,9 +36,9 @@ class BurgerMenu extends Component {
 }
 
 // ДАН__________________________________________________
-const mapBurgerMenu = state => {
+function mapBurgerMenu(state) {
     return {
-        sidebarStatus: state.sidebarStatus
+        sidebar: state.sidebar
     }
 }
 

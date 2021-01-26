@@ -1,4 +1,4 @@
-import { TOGGLE_SIDEBAR, SHOW_REGISTRATION } from './actions'
+import { TOGGLE_SIDEBAR } from './actions'
 
 export const reducer = (state, action) => {
 
@@ -9,14 +9,7 @@ export const reducer = (state, action) => {
 				...state,
 				sidebar: action.status
 			}
-
-		case SHOW_REGISTRATION: 
-			return {
-				...state,
-				registration: action.status 
-			}
+		
+		default: return state
 	}
-
-	return state
-
 }

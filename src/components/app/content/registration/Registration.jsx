@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-// redux
-import { connect } from 'react-redux'
-
 // styles
 import './registration.scss';
 
-class Registration extends Component {
+export default class Registration extends Component {
     constructor(props) {
         super(props)
     }
@@ -13,7 +10,7 @@ class Registration extends Component {
     render() {
         return (
             <>    
-                <form className={`${this.props.registration ? "registration visible" : "registration"}`} action="" method="post">
+                <form className="registration" action="" method="post">
 
                     <h2 className="reg-title">Регистрация</h2>
 
@@ -64,11 +61,3 @@ class Registration extends Component {
         )
     }
 }
-
-function statusWrapper(state) {
-    return {
-        registration: state.registration
-    }
-}
-
-export default connect(statusWrapper)(Registration)

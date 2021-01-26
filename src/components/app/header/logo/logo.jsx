@@ -11,6 +11,7 @@ export default function Logo(props) {
 			<Link className="logo" to="/">
 				<img src={logo} alt=""/> 
 			</Link>
+			
 		</>	
 	)
 }

@@ -19,24 +19,27 @@ import { store } from '../../store/store.js'
 
 
 
-function H111(props) {
-	return (
-		<h1>Big Dick</h1>		
-	)
-}
+// function H111(props) {
+// 	return (
+// 		<h1>Big Dick</h1>		
+// 	)
+// }
+
+
+	console.log('store', store.getState());
+
 
 
 export default function App() {
-	
+
+
 	return (
 		<>
 			<Router>
 				<Provider store={store}> 
 					<Header /> 
-					<div>
-						<Route exact path='/' component={Content}/>
-						<Route exact path='/test' component={H111}/>
-					</div>
+					<Content />
+						{/* <Route exact path='/test' component={H111}/> */}
 				</Provider>	
 			</Router>
 		</>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Icons from '../../../../../assets/img/icons.svg'
+import icons from '../../../../../assets/img/icons.svg'
 import EditBtn from '../../../../../assets/img/edit.png'
 import Avatar from '../../../../../assets/img/avatar.jpeg'
 
@@ -30,7 +30,7 @@ export default function User(props) {
                     {/*  ВЫКЛЮЧИТЬ ЮЗЕР  */}
                     <Link className="exit" to="/">
                         <svg width="20" height="20" className="icon icon-exit">
-                            <use xlinkHref={`${Icons}#exit`}/>
+                            <use xlinkHref={`${icons}#exit`}/>
                         </svg>
                     </Link>
 

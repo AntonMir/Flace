@@ -1,4 +1,5 @@
 import { TOGGLE_SIDEBAR } from './actions'
+import { SEND_JSON } from './actions'
 
 export const reducer = (state, action) => {
 
@@ -8,6 +9,12 @@ export const reducer = (state, action) => {
 			return { 
 				...state,
 				sidebar: action.status
+			}
+		
+		case SEND_JSON:
+			return {
+				...state,
+				sendJson: action.data
 			}
 		
 		default: return state

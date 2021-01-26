@@ -18,15 +18,13 @@ export default class Content extends Component {
 
     render() {
         return (
-            <>
-                <section className="content">
-                    <Route exact path='/' component={Posts}/>
-                    <Route exact path='/addNewPost' component={AddPostForm}/>
-                    <Route exact path='/registration' component={Registration}/>
-                    <Route exact path='/user/edit' component={EditUser}/>
-                    <Sidebar />
-                </section>
-            </>
+            <section className="content">
+                <Route exact path='/' component={Posts}/>
+                <Route exact path='/addNewPost' component={AddPostForm}/>
+                <Route exact path='/registration' component={Registration}/>
+                <Route exact path='/user/edit' component={EditUser}/>
+                <Sidebar />
+            </section>
         )
     }
 }

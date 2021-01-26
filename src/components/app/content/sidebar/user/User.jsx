@@ -5,7 +5,6 @@ import Avatar from '../../../../../assets/img/avatar.jpeg'
 
 import { Link } from "react-router-dom"
 
-import EditUser from './editUser/EditUser.jsx'
 
 import './user.scss'
 
@@ -24,7 +23,7 @@ export default function User(props) {
                     </div>
 
                     {/*  РЕДАКТИРОВАНИЕ ЮЗЕРА  */}
-                    <Link className="edit" to="/">
+                    <Link className="edit" to="/user/edit">
                         <img src={`${EditBtn}`} className="icon icon-edit" alt="edit"/>
                     </Link>
 
@@ -37,9 +36,6 @@ export default function User(props) {
 
                 </div>
                 {/* ./user-container */}
-
-                {/* Редактирование Пользователя */}
-                <EditUser />
 
             </div>
             {/* ./user */}

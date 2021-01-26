@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 // redux
-import { connect } from 'react-redux'
-import { store } from '../../../../../store/store'
-import { showRegistration } from '../../../../../store/actions'
+import RegistrationBtn from './registrationBtn/RegistrationBtn';
 // styles
 import './login.scss'
 
@@ -10,24 +8,6 @@ class Login extends Component {
     constructor(props) {
         super(props)
     }
-
-    showRegistration = () => {
-        store.dispatch(showRegistration(!this.props.registration))
-        console.log(store.getState());
-
-    }
-
-    // return {
-	// 	type: SHOW_REGISTRATION,
-	// 	status: status
-	// }
-
-    // store = createStore(reducer, initialState)
-    // registration: false
-
-    // createStore(reducer, initialState).dispatch( { type: SHOW_REGISTRATION, status:  false } )
-
-    // createStore( (state, { type: SHOW_REGISTRATION, status:  false }), initialState)
 
     render() {
         return (
@@ -64,7 +44,7 @@ class Login extends Component {
                     </form>
                     {/* ./login-form */}
 
-                    <div className="login-signup" onClick={this.showRegistration}>Регистрация</div>
+                    <RegistrationBtn />
 
                 </div>
                 {/* ./login */}
@@ -73,10 +53,5 @@ class Login extends Component {
     }
 }
 
-function statusWrapper(state) {
-    return {
-        registration: state.registration
-    }
-}
 
-export default connect(statusWrapper)(Login)
+export default Login

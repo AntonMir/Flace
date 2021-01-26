@@ -4,6 +4,10 @@
     border: rgb(230, 230, 230) solid 1px;
 }
 
+.user.visible{
+    display: block;
+}
+
 .user-container {
     display: flex;
     justify-content: space-between;

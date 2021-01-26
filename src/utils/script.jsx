@@ -1,36 +1,4 @@
-// Создаем переменную, в которую положим кнопку меню
-const menuToggle = document.querySelector('#menu-toggle');
-// Создаем переменную, в которую положим меню
-const menu = document.querySelector('.sidebar');
-
-
 const regExpValidEmail = /^\w+@\w+\.\w{2,}$/;
-
-const loginElem = document.querySelector('.login');
-const loginForm = document.querySelector('.login-form');
-const emailInput = document.querySelector('.login-email');
-const passwordInput = document.querySelector('.login-password');
-const loginSingup = document.querySelector('.login-signup');
-const userElem = document.querySelector('.user');
-const userNameElem = document.querySelector('.user-name');
-
-const exitElem = document.querySelector('.exit');
-
-const editElem = document.querySelector('.edit');
-const editContainer = document.querySelector('.edit-container');
-
-const editUsername = document.querySelector('.edit-username');
-const editPhotoURL = document.querySelector('.edit-photo');
-const userAvatarElem = document.querySelector('.user-avatar');
-
-const postsWrapper = document.querySelector('.posts');
-
-const buttonNewPost = document.querySelector('.button-new-post');
-const addPostForm = document.querySelector('.add-post');
-// const addPostButton = document.querySelector('.add-button');
-const addPostTitle = document.querySelector('.add-title'); 
-const addPostText = document.querySelector('.add-text');
-
 
 
 // пародия на БД
@@ -136,17 +104,17 @@ const toggleAuthDom = () => {
     console.log('user: ', user);
     
     if (user) {
-        loginElem.style.display = 'none';
-        userElem.style.display = '';
-        buttonNewPost.style.display = '';
-        userNameElem.textContent = user.displayName;
-        userAvatarElem.src = user.photo ? user.photo : userAvatarElem.src;
+        document.querySelector('.login').style.display = 'none';
+        document.querySelector('.user').style.display = '';
+        document.querySelector('.button-new-post').style.display = '';
+        document.querySelector('.user-name').textContent = user.displayName;
+        document.querySelector('.user-avatar').src = user.photo ? user.photo : document.querySelector('.user-avatar').src;
     } else {
-        loginElem.style.display = '';
-        userElem.style.display = 'none';
-        buttonNewPost.style.display = 'none';
-        addPostForm.classList.remove('active');
-        postsWrapper.style.display = '';
+        document.querySelector('.login').style.display = '';
+        document.querySelector('.user').style.display = 'none';
+        document.querySelector('.button-new-post').style.display = 'none';
+        document.querySelector('.add-post').classList.remove('active');
+        document.querySelector('.posts').style.display = '';
     }
 }
 
@@ -262,27 +230,27 @@ const showAllPosts = () => {
         `;
     })
 
-    postsWrapper.innerHTML = postsHTML;
+    document.querySelector('.posts').innerHTML = postsHTML;
 
 };
 
 // показать/скрыть форму для нового поста
 const showNewPostForm = () => {
         
-    buttonNewPost.addEventListener('click', (event) => {
+    document.querySelector('.button-new-post').addEventListener('click', (event) => {
         event.preventDefault();
         const user = setUsers.user;
 
         if (user) {
-            addPostForm.classList.add('active');
-            postsWrapper.style.display = 'none';
+            document.querySelector('.add-post').classList.add('active');
+            document.querySelector('.posts').style.display = 'none';
         }
     })
 }
 
 // добавление поста на ленту постов
 const addNewPostToAllPost = () => {
-    addPostForm.addEventListener('submit', (event) => {
+    document.querySelector('.add-post').addEventListener('submit', (event) => {
         event.preventDefault();
         
         const data = new Date();
@@ -294,8 +262,8 @@ const addNewPostToAllPost = () => {
         console.log('setUsers.user.photo ',setUsers.user.photo);
 
         const newPost = [{
-            title: addPostTitle.value,
-            text: addPostText.value,
+            title: document.querySelector('.add-title').value,
+            text: document.querySelector('.add-text').value,
             tags: ['свежее', 'новое', 'горячее', 'мое', 'случайность'],
             author: {displayName: postAuthor, photo: postAuthorPhoto},
             date: dateNow,
@@ -305,8 +273,8 @@ const addNewPostToAllPost = () => {
         
         setPosts.allPosts.unshift(...newPost);
 
-        addPostForm.classList.remove('active');
-        postsWrapper.style.display = '';
+        document.querySelector('.add-post').classList.remove('active');
+        document.querySelector('.posts').style.display = '';
 
         showAllPosts();
 
@@ -327,48 +295,48 @@ const addNewPostToAllPost = () => {
     })
 
     // Вход
-    loginForm.addEventListener('submit', (event) => {
+    document.querySelector('.login-form').addEventListener('submit', (event) => {
         event.preventDefault();
-        setUsers.logIn(emailInput.value, passwordInput.value, toggleAuthDom);
-        loginForm.reset();
-        editContainer.classList.remove('visible');
+        setUsers.logIn(document.querySelector('.login-email').value, document.querySelector('.login-password').value, toggleAuthDom);
+        document.querySelector('.login-form').reset();
+        document.querySelector('.edit-container').classList.remove('visible');
     })
 
     // Регистрация
-    loginSingup.addEventListener('click', (event) => {
+    document.querySelector('.login-signup').addEventListener('click', (event) => {
         event.preventDefault();
-        setUsers.signUp(emailInput.value, passwordInput.value, toggleAuthDom);
-        loginForm.reset();
-        editContainer.classList.remove('visible');
+        setUsers.signUp(document.querySelector('.login-email').value, document.querySelector('.login-password').value, toggleAuthDom);
+        document.querySelector('.login-form').reset();
+        document.querySelector('.edit-container').classList.remove('visible');
     })
 
     // РАЗЛОГИН
-    exitElem.addEventListener('click', (event) => {
+    document.querySelector('.exit').addEventListener('click', (event) => {
         event.preventDefault();
         setUsers.logOut(toggleAuthDom);
     })
 
     //показать/скрыть "РЕДАКТИРОВАНИЕ"
-    editElem.addEventListener('click', (event) => {
+    document.querySelector('.edit').addEventListener('click', (event) => {
 
         // подставляем значения ЮЗЕРА в поля редактирования
-        if (editUsername.value !== setUsers.user.displayName) {
-        editUsername.value = setUsers.user.displayName;
+        if (document.querySelector('.edit-username').value !== setUsers.user.displayName) {
+        document.querySelector('.edit-username').value = setUsers.user.displayName;
         }    
         
-        if (editPhotoURL.value !== userAvatarElem.src) {
-        editPhotoURL.value = userAvatarElem.src;
+        if (document.querySelector('.edit-photo').value !== document.querySelector('.user-avatar').src) {
+        document.querySelector('.edit-photo').value = document.querySelector('.user-avatar').src;
         }    
 
         event.preventDefault();
-        editContainer.classList.toggle('visible');
+        document.querySelector('.edit-container').classList.toggle('visible');
     })
 
     // Сохраняем новый логин и новую фотку
-    editContainer.addEventListener('submit', event => {
+    document.querySelector('.edit-container').addEventListener('submit', event => {
         event.preventDefault();
-        setUsers.editUser(editUsername.value, editPhotoURL.value, toggleAuthDom);
-        editContainer.classList.remove('visible');
+        setUsers.editUser(document.querySelector('.edit-username').value, document.querySelector('.edit-photo').value, toggleAuthDom);
+        document.querySelector('.edit-container').classList.remove('visible');
     })
 
     showAllPosts();

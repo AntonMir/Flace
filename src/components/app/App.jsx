@@ -1,5 +1,5 @@
 // react
-import React from 'react'
+import React, { Component } from 'react'
 
 // route
 import { BrowserRouter as Router, Route } from "react-router-dom"
@@ -27,16 +27,17 @@ function H111(props) {
 
 
 export default function App() {
+	
 	return (
 		<>
-    		<Router>
-  				{/* <Provider store={store}> */}
+			<Router>
+				<Provider store={store}> 
 					<Header /> 
 					<div>
 						<Route exact path='/' component={Content}/>
 						<Route exact path='/test' component={H111}/>
 					</div>
-				{/* </Provider>	 */}
+				</Provider>	
 			</Router>
 		</>
 	)

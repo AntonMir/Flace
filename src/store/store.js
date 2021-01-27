@@ -4,7 +4,7 @@ import { reducer } from './reducer'
 // Начальное состояние
 export const initialState = {
 	sidebar: false,
-	sendJson: {},
+	registrationSucces: false,
 }
 
 

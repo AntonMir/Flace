@@ -1,11 +1,9 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
 // styles
 import './registration.scss';
 // redux
-import { sendJson } from '../../../../store/actions'
+import { registrationSucces } from '../../../../store/actions'
 import { store } from '../../../../store/store'
-// import { data } from 
-
 
 
 export default class Registration extends Component {
@@ -15,39 +13,35 @@ export default class Registration extends Component {
         this.registrationForm = this.registrationForm.bind(this)
     }
 
-    // getAny() {
-    //     сделать запрос
-    //     получить ответ
-    //     положить в this.state через this.setState
-
-    // }
-
     registrationForm(event) {
         event.preventDefault();
         event.stopPropagation(); //остановить всплытие события 
 
-        console.log('e.target', event.target);
-        console.log('e.target.value', event.target.value);
-        console.log('this.state', this.state);
+        if( this.state.pass !== this.state.repitPass) {
+            alert('Несовпадение паролей');
+        } else {
+            console.log('Пароли совпадают');
 
-        // fetch('127.0.0.1:3000/registr',
-        // {
-        //     method: 'POST',
-        //     body: JSON.stringify(this.state),
-        //     headers: {
-        //         'Content-Type': "application/json"
-        //     }
-        // }).then(response => response.json())
-        //   .then(data => store.dispatch(sendJson(data)) )
+            store.dispatch(registrationSucces(!!this.state))
 
-        store.dispatch(sendJson(this.state))
+            console.log('this.state', this.state);
+            console.log('store:', store.getState());
+            
+            //если выполняется условие в else, то отправляем на сервер даныне и переходим по ссылке
+            this.props.history.push("/registrationSucces"); 
+
+             
+
+            const userRegistrationData = this.state.map((el) => ({
+                userName: el.userName, 
+                email: el.email, 
+                pass: el.pass
+            }))
+
+            console.log('userRegistrationData', userRegistrationData);
+        }
     }
 
-
-    // componentDidMount() {
-    //     this.getAny()
-    // }
-    // onclick, onChange, onSubmit, onKeydown, onKeypress, onKeyapp, onBlure
 
     render() {
         return (
@@ -61,18 +55,10 @@ export default class Registration extends Component {
                         type="text"
                         className="user-name-registration reg-input"
                         name="userName"     
-                        maxLength="1"              
+                        minLength="3"              
                         required
                         placeholder="Введите имя пользователя"
-                        onBlur={event => {console.log("onBlur");}} 
-                        onKeyUp={event => {console.log("onKeyUp");}} 
-                        onKeyDown={event => {console.log("onKeydown");}} 
-                        onKeyPress={event => {console.log("onKeypress");}} 
-                        onFocus={event => {console.log("onFocus");}} 
-                        onCut={event => {console.log("onCut");}} 
-                        onChange={event => {
-                            console.log("onChange");
-                            this.setState({userName: event.target.value})}}
+                        onChange={event => {this.setState({userName: event.target.value})}}
                     />
 
                     {/* ПОЧТА */}
@@ -83,6 +69,7 @@ export default class Registration extends Component {
                         minLength="1"              
                         required
                         placeholder="Введите email"
+                        onChange={event => {this.setState({email: event.target.value})}}
                     />
 
                     {/* ЗАДАТЬ ПАРОЛЬ */}
@@ -93,6 +80,7 @@ export default class Registration extends Component {
                         minLength="4"              
                         required
                         placeholder="Задайте пароль"
+                        onChange={event => {this.setState({pass: event.target.value})}}
                     />
 
                     {/* ПОВТОРИТЬ ПАРОЛЬ */}
@@ -103,6 +91,7 @@ export default class Registration extends Component {
                         minLength="4"              
                         required
                         placeholder="Повторите пароль"
+                        onChange={event => {this.setState({repitPass: event.target.value})}}
                     />
 
                     <button className="reg-btn" type="submit">Подтвердить</button>

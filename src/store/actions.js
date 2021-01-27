@@ -1,6 +1,6 @@
 // кладем в переменную тип нашего action
 export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR"
-export const SEND_JSON = "SEND_JSON"
+export const REGISTRATION_SUCCES = "REGISTRATION_SUCCES"
 
 // Функция, которая содержит в себе тип и статус нашего Sidebar
 export function toggleSidebar(status) {
@@ -10,9 +10,9 @@ export function toggleSidebar(status) {
 	}
 }
 
-export function sendJson(data) {
+export function registrationSucces(status) {
 	return {
-		type: SEND_JSON,
-		data: data
+		type: REGISTRATION_SUCCES,
+		status: status
 	}
 } 

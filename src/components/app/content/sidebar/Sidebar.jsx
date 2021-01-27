@@ -17,8 +17,7 @@ class Sidebar extends Component {
     constructor(props) {
         super(props)
     }
- 
-    
+     
     render() {
 
         return (
@@ -38,7 +37,7 @@ class Sidebar extends Component {
 
 }
 
-// -------------REDUX-ДАН----------------
+// -------------REDUX-обертка----------------
 const mapSidebar = state => {
     return {
         sidebar: state.sidebar

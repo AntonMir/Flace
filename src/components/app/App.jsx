@@ -1,5 +1,5 @@
 // react
-import React, { Component } from 'react'
+import React from 'react'
 
 // route
 import { BrowserRouter as Router, Route } from "react-router-dom"
@@ -17,16 +17,7 @@ import { Provider } from 'react-redux'
 import { store } from '../../store/store.js'
 
 
-
-
-// function H111(props) {
-// 	return (
-// 		<h1>Big Dick</h1>		
-// 	)
-// }
-
-
-	console.log('store', store.getState());
+console.log('store:', store.getState());
 
 
 

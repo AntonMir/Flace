@@ -1,5 +1,5 @@
 import { TOGGLE_SIDEBAR } from './actions'
-import { SEND_JSON } from './actions'
+import { REGISTRATION_SUCCES } from './actions'
 
 export const reducer = (state, action) => {
 
@@ -11,10 +11,10 @@ export const reducer = (state, action) => {
 				sidebar: action.status
 			}
 		
-		case SEND_JSON:
+		case REGISTRATION_SUCCES:
 			return {
 				...state,
-				sendJson: action.data
+				registrationSucces: action.status
 			}
 		
 		default: return state

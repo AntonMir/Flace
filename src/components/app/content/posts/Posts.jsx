@@ -7,11 +7,11 @@ import './posts.scss'
 import  SetPosts  from './PostsJSON'
 
 function Post(props) {
-    const {title, text, tags, author, date, like, comments} = props;
+    const {title, text, tags, author, date, like, comments, id} = props;
 
     return (
         
-        <section className="post">
+        <section className="post" key={id}>
 
             <div className="post-body">
                 <h2 className="post-title">{title}</h2>

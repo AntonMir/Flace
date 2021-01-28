@@ -14,32 +14,43 @@ export default class Registration extends Component {
     }
 
     registrationForm(event) {
-        event.preventDefault();
+        event.preventDefault(); //убираем обычное поведение браузера
         event.stopPropagation(); //остановить всплытие события 
 
-        if( this.state.pass !== this.state.repitPass) {
-            alert('Несовпадение паролей');
-        } else {
-            console.log('Пароли совпадают');
+        console.log('------------RegistrationSucces-------------');
 
-            store.dispatch(registrationSucces(!!this.state))
-
-            console.log('this.state', this.state);
-            console.log('store:', store.getState());
-            
-            //если выполняется условие в else, то отправляем на сервер даныне и переходим по ссылке
-            this.props.history.push("/registrationSucces"); 
-
-             
-
-            const userRegistrationData = this.state.map((el) => ({
-                userName: el.userName, 
-                email: el.email, 
-                pass: el.pass
-            }))
-
-            console.log('userRegistrationData', userRegistrationData);
+        // регулярка для проверки валидности почты
+        const regExpValidEmail = /^\w+@\w+\.\w{2,}$/;
+        
+        // проверка почты на валидность
+        if(!regExpValidEmail.test(this.state.email)) {
+            console.log(this.state.email);
+            return alert('email не валиден');
         }
+
+        // проверяем совпадение паролей
+        if( this.state.pass !== this.state.repitPass) {
+            return alert('Несовпадение паролей');
+        } 
+
+        console.log('this.state', this.state);
+        console.log('store:', store.getState());
+        
+        //если выполняется условие в else, то отправляем на сервер даныне и переходим по ссылке
+        this.props.history.push("/registrationSucces"); 
+
+        // убираем лишне из данных для отправки
+        let userRegistrationData = {};
+        for(let key in this.state) {
+            if (key != 'repitPass'){
+                userRegistrationData[key] = this.state[key];
+            }
+        }
+
+        console.log('Данные для отправки на сервер: ', userRegistrationData);
+
+        console.log('-------------------------------------------');
+        
     }
 
 
